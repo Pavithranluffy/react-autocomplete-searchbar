@@ -21,6 +21,7 @@
 .result {
   padding: 5px;
   display: block;
+  cursor: pointer;
 }
 .result:hover {
   border-radius: inherit;
