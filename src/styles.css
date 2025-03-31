@@ -2,3 +2,27 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.input-text {
+  width: 400px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.result-container {
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid black;
+  max-height: 500px;
+  align-items: center;
+  margin: auto;
+  text-align: left;
+  overflow-y: scroll;
+}
+.result {
+  padding: 5px;
+  display: block;
+}
+.result:hover {
+  border-radius: inherit;
+  background-color: rgb(179, 221, 187);
+}
