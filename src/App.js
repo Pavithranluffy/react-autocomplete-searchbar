@@ -6,8 +6,10 @@ export default function App() {
   //First To store the input let us create a state
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
+  const [showResult , setShowresults]= useState(false);
   const fetchData = async () => {
     try {
+      console.log("Api call hit",input);
       const response = await fetch(
         `https://dummyjson.com/recipes/search?q=${input}`
       );
@@ -19,7 +21,22 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchData();
+    if(input.length >0){
+
+      const timer = setTimeout(
+
+        fetchData
+        
+      , 300);
+      return ()=>{
+
+        clearTimeout(timer)
+    
+    }
+
+    }
+
+   
   }, [input]);
 
   return (
@@ -31,8 +48,10 @@ export default function App() {
           className="input-text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onFocus={()=> setShowresults(true)}
+          onBlur={()=>setShowresults(false)}
         ></input>
-        {input && (
+        {showResult && (
           <div className="result-container">
             {results.map((data) => (
               <span className="result" key={data.id}>
